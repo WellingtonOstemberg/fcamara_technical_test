@@ -25,5 +25,16 @@ declare module 'styled-components' {
       overlay: string
       background: string
     }
+    spacings: {
+      xxSmall: string
+      xSmall: string
+      small: string
+      medium: string
+      large: string
+      xLarge: string
+      xxLarge: string
+      xxxLarge: string
+      xtreme: string
+    }
   }
 }
