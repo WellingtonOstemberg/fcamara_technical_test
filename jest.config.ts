@@ -18,6 +18,7 @@ export default {
     'src/redux/',
     'src/routes/',
     'src/services/',
+    'src/styles/',
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
