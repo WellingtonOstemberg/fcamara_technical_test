@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
-interface ButtonProps {
-  active?: boolean
-}
-
-export const TopoWrapper = styled.div<ButtonProps>`
+export const TopoWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 41px;
