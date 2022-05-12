@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { TestWrapper } from '../../../utils'
-import { ButtonDefault } from '.'
+import { BtnPrimaryLifted } from '.'
 
-describe('ButtonDefault [Component]', () => {
-  it('Should render a button with bg and color', () => {
+describe('BtnPrimaryLifted [Component]', () => {
+  it('Should render a button with color', () => {
     render(
       <TestWrapper>
-        <ButtonDefault color="white" />
+        <BtnPrimaryLifted color="white" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'No text' })
@@ -18,7 +19,7 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with icon', () => {
     render(
       <TestWrapper>
-        <ButtonDefault icon={<span>Test</span>} />
+        <BtnPrimaryLifted icon={<span>Test</span>} />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'Test' })
@@ -27,7 +28,7 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with text', () => {
     render(
       <TestWrapper>
-        <ButtonDefault text="text" />
+        <BtnPrimaryLifted text="text" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'text' })
@@ -36,7 +37,7 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with border-radius', () => {
     render(
       <TestWrapper>
-        <ButtonDefault borderRadius="2px" />
+        <BtnPrimaryLifted borderRadius="2px" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'No text' })
@@ -47,7 +48,7 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with height', () => {
     render(
       <TestWrapper>
-        <ButtonDefault height="2px" />
+        <BtnPrimaryLifted height="2px" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'No text' })
@@ -58,7 +59,7 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with font-size', () => {
     render(
       <TestWrapper>
-        <ButtonDefault fontSize="2px" />
+        <BtnPrimaryLifted fontSize="2px" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'No text' })
@@ -69,12 +70,24 @@ describe('ButtonDefault [Component]', () => {
   it('Should render a button with width', () => {
     render(
       <TestWrapper>
-        <ButtonDefault width="2px" />
+        <BtnPrimaryLifted width="2px" />
       </TestWrapper>,
     )
     const btn = screen.getByRole('button', { name: 'No text' })
     expect(btn).toHaveStyle({
       width: '2px',
     })
+  })
+  it('Should call a function onClick', () => {
+    const onClick = jest.fn()
+    render(
+      <TestWrapper>
+        <BtnPrimaryLifted onClick={onClick} />
+      </TestWrapper>,
+    )
+    const btn = screen.getByRole('button', { name: 'No text' })
+    userEvent.click(btn)
+    expect(onClick).toHaveBeenCalled()
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })
