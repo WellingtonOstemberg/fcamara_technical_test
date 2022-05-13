@@ -1,46 +1,126 @@
-# Getting Started with Create React App
+<h1 align="center">Boilerplate Complete and updated with React.js, Webpack, Typescript, Styled-Components, Tests and Redux Toolkit</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br />
 
-## Available Scripts
+# :memo: About the Project
 
-In the project directory, you can run:
+This application is a technical test for a plano vacancy on FCamara Company.
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# :pushpin: Contents
 
-### `npm test`
+* [Technologies](#globe_with_meridians-technologies)
+* [Features](#triangular_flag_on_post-features)
+* [Prerequisites](#white_check_mark-prerequisites)
+* [How to install and run the project](#question-how-to-install-and-run-the-project)
+  * [Clone Repository](#clone-repository)
+  * [Install Dependencies](#install-dependencies)
+  * [Start Development Environment](#start-development-environment)
+  * [Generate Production Build](#generate-production-build)
+  * [Generate Development Build](#generate-development-build)
+  * [Start Production Environment](#start-production-environment)
+  * [Run Tests](#run-tests)
+  * [Run Tests in Watch Mode](#run-tests-in-watch-mode)
+  * [Launch Storybook in Development Mode](#launch-storybook-in-development-mode)
+  * [Generate Storybook Production Build](#generate-storybook-production-build)
+  * [Run Lints](#run-lints)
+* [Important Considerations](#rotating_light-important-considerations)
+* [Author](#technologist-author)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# :globe_with_meridians: Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+⚛ React.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔥 TypeScript
 
-### `npm run eject`
+💅 Styled-Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+🗂 Redux Toolkit and Redux-Persist
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🚩 Lints: ESlint, Stylelint, Commitlint, Lint-Staged, Prettier, EditorConfig and Typecheck
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+✅ Jest 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+🐙 React Testing Library
 
-## Learn More
+📝 Storybook
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔧 Webpack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br />
+
+---
+
+# :triangular_flag_on_post: Features
+
+- [x] Responsive design;
+
+- [x] Theme created with styled-components without using a provider and no need to access theme properties with arrow functions;
+
+- [x] 100% coverage in tests including: components, templates, pages and hooks;
+
+<br />
+
+---
+
+# :white_check_mark: Prerequisites
+
+- node (latest version lts)
+
+- yarn or npm
+
+<br />
+
+---
+
+# :question: How to install and run the project
+
+## Clone Repository
+
+```bash
+git clone https://github.com/everton-dgn/react_webpack_styled_components_redux_tlk_boilerplate.git
+```
+
+## Install Dependencies
+
+```bash
+yarn
+```
+
+## Start Development Environment
+
+```bash
+yarn dev
+```
+
+Available in http://localhost:3000
+
+## Generate Production Build
+
+```bash
+yarn build
+```
+
+
+## Run Tests in Watch Mode
+
+```bash
+yarn test
+```
+
+<br />
+
+---
+
+# :technologist: Author
+
+By [Wellington Luiz B. Ostemberg].
+
+:link: LinkedIn: https://www.linkedin.com/in/wellington-ostemberg/
