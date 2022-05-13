@@ -15,6 +15,6 @@ export const TopbarItem = () => {
       )
 
     default:
-      return <span />
+      return <></>
   }
 }
