@@ -1,26 +1,28 @@
 import { useLocation } from 'react-router-dom'
 import { FiChevronDown } from 'react-icons/fi'
 import { menusAdminMock } from 'utils'
-import { AdminWrapper, BadgeAdmin, DropdownAdmin } from './styles'
+import * as S from './styles'
 
 export const MenuAdmin = () => {
   const location = useLocation()
 
   return (
-    <AdminWrapper>
-      <ul>
+    <S.AdminWrapper>
+      <S.ListAdmin>
         {menusAdminMock.map((menu) => {
           return (
-            <li className={location.pathname === menu.path ? 'active' : ''}>
-              <span>{menu.name}</span>{' '}
-              {menu.badge > 0 ? <BadgeAdmin>{menu.badge}</BadgeAdmin> : ''}
-            </li>
+            <S.ListItemAdmin
+              className={location.pathname === menu.path ? 'active' : ''}
+            >
+              <S.DropdownTextAdmin>{menu.name}</S.DropdownTextAdmin>{' '}
+              {menu.badge > 0 ? <S.BadgeAdmin>{menu.badge}</S.BadgeAdmin> : ''}
+            </S.ListItemAdmin>
           )
         })}
-      </ul>
-      <DropdownAdmin>
+      </S.ListAdmin>
+      <S.DropdownAdmin>
         <span>João Dasneves</span> <FiChevronDown />
-      </DropdownAdmin>
-    </AdminWrapper>
+      </S.DropdownAdmin>
+    </S.AdminWrapper>
   )
 }

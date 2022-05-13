@@ -8,19 +8,6 @@ export const AdminWrapper = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.white};
   padding: 24px 28px;
-  ul {
-    display: flex;
-    li {
-      cursor: pointer;
-      display: flex;
-      height: 49px;
-      padding: 16px;
-      list-style: none;
-      &.active {
-        color: ${(props) => props.theme.colors.orange};
-      }
-    }
-  }
 `
 
 export const BadgeAdmin = styled.div`
@@ -35,7 +22,29 @@ export const BadgeAdmin = styled.div`
   background-color: ${(props) => props.theme.colors.red};
   color: ${(props) => props.theme.colors.white};
 `
-
+export const ListAdmin = styled.ul`
+  display: flex;
+  li {
+    cursor: pointer;
+    display: flex;
+    height: 49px;
+    padding: 16px;
+    list-style: none;
+    &.active {
+      color: ${(props) => props.theme.colors.orange};
+    }
+  }
+`
+export const ListItemAdmin = styled.li`
+  cursor: pointer;
+  display: flex;
+  height: 49px;
+  padding: 16px;
+  list-style: none;
+  &.active {
+    color: ${(props) => props.theme.colors.orange};
+  }
+`
 export const DropdownAdmin = styled.div`
   display: flex;
   align-items: center;
@@ -45,4 +54,10 @@ export const DropdownAdmin = styled.div`
     font-size: 14px;
     letter-spacing: 0.35px;
   }
+`
+export const DropdownTextAdmin = styled.div`
+  margin-right: 7px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.35px;
 `
