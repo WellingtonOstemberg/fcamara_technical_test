@@ -20,3 +20,13 @@ export const TestWrapper = ({ children }: TestWrapperProps) => {
     </BrowserRouter>
   )
 }
+export const TestWrapperWithoutRoutes = ({ children }: TestWrapperProps) => {
+  return (
+    <ThemeProvider theme={Theme}>
+      <>
+        <GlobalStyles />
+        {children}
+      </>
+    </ThemeProvider>
+  )
+}
