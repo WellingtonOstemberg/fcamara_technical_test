@@ -9,12 +9,13 @@ interface BtnPrimaryLiftedProps {
   width?: string
   height?: string
   fontSize?: string
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: () => void
 }
 export const BtnPrimaryLifted = (props: BtnPrimaryLiftedProps) => {
   return (
     <Button {...props}>
-      {props.icon} {props.text} {!props.icon && !props.text && 'No text'}
+      {props.icon} <span>{props.text}</span>{' '}
+      {!props.icon && !props.text && 'No text'}
     </Button>
   )
 }
