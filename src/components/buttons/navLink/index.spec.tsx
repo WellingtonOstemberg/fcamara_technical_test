@@ -38,4 +38,16 @@ describe('BtnNavLink [Component]', () => {
       color: '#fff',
     })
   })
+  it('Should render a button with right color and bg', () => {
+    render(
+      <TestWrapper>
+        <BtnNavLink icon={<FiUsers />} text={'any text'} active={false} />
+      </TestWrapper>,
+    )
+    const btn = screen.getByRole('button', { name: 'any text' })
+    expect(btn).toHaveStyle({
+      color: colors.gray700,
+      backgroundColor: '#fff',
+    })
+  })
 })
