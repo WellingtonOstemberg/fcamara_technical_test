@@ -12,6 +12,7 @@ export const MenuAdmin = () => {
         {menusAdminMock.map((menu) => {
           return (
             <S.ListItemAdmin
+              key={menu.path}
               className={location.pathname === menu.path ? 'active' : ''}
             >
               <S.DropdownTextAdmin>{menu.name}</S.DropdownTextAdmin>{' '}

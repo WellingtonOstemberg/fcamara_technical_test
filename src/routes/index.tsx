@@ -7,7 +7,7 @@ export const MainRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       {menusAdminMock.map((menu) => {
-        return <Route path={menu.path} element={<Home />} />
+        return <Route key={menu.path} path={menu.path} element={<Home />} />
       })}
     </Routes>
   )
