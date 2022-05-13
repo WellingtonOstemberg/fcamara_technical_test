@@ -11,4 +11,7 @@ export default createGlobalStyle`
         font-family: 'Lato', sans-serif;
         background-color: ${(props) => props.theme.colors.background}
     }
+    .search-input-icon {
+        color: ${(props) => props.theme.colors.grayLight};
+    }
 `
