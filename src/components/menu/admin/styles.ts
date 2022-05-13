@@ -8,6 +8,7 @@ export const AdminWrapper = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.white};
   padding: 24px 28px;
+  margin-bottom: 12px;
 `
 
 export const BadgeAdmin = styled.div`
