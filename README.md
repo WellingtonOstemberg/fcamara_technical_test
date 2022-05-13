@@ -20,13 +20,7 @@ This application is a technical test for a plano vacancy on FCamara Company.
   * [Install Dependencies](#install-dependencies)
   * [Start Development Environment](#start-development-environment)
   * [Generate Production Build](#generate-production-build)
-  * [Generate Development Build](#generate-development-build)
-  * [Start Production Environment](#start-production-environment)
-  * [Run Tests](#run-tests)
   * [Run Tests in Watch Mode](#run-tests-in-watch-mode)
-  * [Launch Storybook in Development Mode](#launch-storybook-in-development-mode)
-  * [Generate Storybook Production Build](#generate-storybook-production-build)
-  * [Run Lints](#run-lints)
 * [Important Considerations](#rotating_light-important-considerations)
 * [Author](#technologist-author)
 
@@ -42,17 +36,11 @@ This application is a technical test for a plano vacancy on FCamara Company.
 
 💅 Styled-Components
 
-🗂 Redux Toolkit and Redux-Persist
-
-🚩 Lints: ESlint, Stylelint, Commitlint, Lint-Staged, Prettier, EditorConfig and Typecheck
+🚩 Lints: ESlint, Prettier and Typecheck
 
 ✅ Jest 
 
 🐙 React Testing Library
-
-📝 Storybook
-
-🔧 Webpack
 
 <br />
 
@@ -85,7 +73,7 @@ This application is a technical test for a plano vacancy on FCamara Company.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/everton-dgn/react_webpack_styled_components_redux_tlk_boilerplate.git
+git clone https://github.com/WellingtonOstemberg/fcamara_technical_test.git
 ```
 
 ## Install Dependencies
