@@ -1,18 +1,19 @@
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-import { handleFilter } from '../../utils'
+import { TableUsersTHeadFilter } from './components'
 import * as S from './styles'
 
-export const TableUsersTHead = () => {
+type TableUsersTHeadProps = {
+  handleFilter: (filter: string) => void
+}
+
+export const TableUsersTHead = ({ handleFilter }: TableUsersTHeadProps) => {
   return (
     <S.TableUsersTHead>
       <tr>
         <th>
           <div>
             <span>Rede</span>
-            <div>
-              <BiChevronUp onClick={() => handleFilter('networkUp')} />
-              <BiChevronDown onClick={() => handleFilter('networkDown')} />
-            </div>
+            <TableUsersTHeadFilter />
           </div>
         </th>
         <th>
