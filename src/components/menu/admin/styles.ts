@@ -47,6 +47,7 @@ export const ListItemAdmin = styled.li`
   }
 `
 export const DropdownAdmin = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   span {

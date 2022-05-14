@@ -33,4 +33,5 @@ export const Button = styled.button<ButtonProps>`
   .btn-link-text {
     margin-left: 10px;
   }
+  cursor: pointer;
 `
