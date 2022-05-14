@@ -1,16 +1,53 @@
 import { BtnPrimaryLifted } from 'components/buttons'
 import { SearchInput } from 'components/input'
-import { useLocation } from 'react-router-dom'
+import { FiSave } from 'react-icons/fi'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { NavItemWrapper } from './styles'
 
 export const TopbarItem = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+  const handleSaveUser = () => {
+    console.log('salvar usuário')
+  }
+  const handleNewUser = () => {
+    return navigate('/usuarios/novo')
+  }
+
+  if (location.pathname.indexOf('/usuarios/editar/') !== -1) {
+    return (
+      <NavItemWrapper>
+        <BtnPrimaryLifted
+          onClick={handleSaveUser}
+          width="184px"
+          text="Salvar Alterações"
+          icon={<FiSave />}
+        />
+      </NavItemWrapper>
+    )
+  }
+
   switch (location.pathname) {
-    case '/redes':
+    case '/usuarios':
       return (
         <NavItemWrapper>
           <SearchInput />
-          <BtnPrimaryLifted text="Novo usuário" />
+          <BtnPrimaryLifted
+            onClick={handleNewUser}
+            width="184px"
+            text="Novo usuário"
+          />
+        </NavItemWrapper>
+      )
+    case '/usuarios/novo':
+      return (
+        <NavItemWrapper>
+          <BtnPrimaryLifted
+            onClick={handleSaveUser}
+            width="184px"
+            text="Salvar Alterações"
+            icon={<FiSave />}
+          />
         </NavItemWrapper>
       )
 
