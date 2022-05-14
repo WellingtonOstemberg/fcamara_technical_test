@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TopoWrapper = styled.div`
+export const TopWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 41px;

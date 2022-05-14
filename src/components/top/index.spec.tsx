@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import { TestWrapper } from '../../utils'
-import { Topo } from '.'
+import { Top } from '.'
 
-describe('Topo [Component]', () => {
+describe('Top [Component]', () => {
   it('Should render with a img', () => {
     render(
       <TestWrapper>
-        <Topo />
+        <Top />
       </TestWrapper>,
     )
     const img = screen.getByRole('img')
@@ -19,7 +19,7 @@ describe('Topo [Component]', () => {
   it('Should render with a specific alt', () => {
     render(
       <TestWrapper>
-        <Topo />
+        <Top />
       </TestWrapper>,
     )
     const alt = screen.getByAltText(
@@ -30,7 +30,7 @@ describe('Topo [Component]', () => {
   it('Should render with a specific src', () => {
     render(
       <TestWrapper>
-        <Topo />
+        <Top />
       </TestWrapper>,
     )
     const alt = screen.getByAltText(
