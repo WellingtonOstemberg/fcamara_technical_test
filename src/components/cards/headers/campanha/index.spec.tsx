@@ -15,13 +15,13 @@ describe('CardHeaderCampanha [Component]', () => {
   })
   it('Should render with correct children and title', () => {
     render(
-      <MemoryRouter initialEntries={[{ pathname: '/redes' }]}>
+      <MemoryRouter initialEntries={[{ pathname: '/usuarios/novo' }]}>
         <TestWrapperWithoutRoutes>
           <CardHeaderCampanha />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )
-    const text = screen.getByText('Novo usuário')
+    const text = screen.getByText('Novo Usuário')
     expect(text).toBeInTheDocument()
   })
 })
