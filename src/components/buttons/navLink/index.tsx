@@ -6,11 +6,17 @@ type BtnNavLinkProps = {
   icon: JSX.Element | IconType
   text: string
   active?: boolean
+  onClick?: () => void
 }
 
-export const BtnNavLink = ({ icon, text, active = false }: BtnNavLinkProps) => {
+export const BtnNavLink = ({
+  icon,
+  text,
+  active = false,
+  onClick,
+}: BtnNavLinkProps) => {
   return (
-    <Button active={active}>
+    <Button onClick={onClick} active={active}>
       <div>
         {icon}
         <span className="btn-link-text">{text}</span>
