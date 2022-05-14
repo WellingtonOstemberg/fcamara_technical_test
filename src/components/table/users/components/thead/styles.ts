@@ -6,7 +6,9 @@ export const TableUsersTHead = styled.thead`
     margin-top: 12px;
     th {
       text-align: left;
-      padding-left: 13px;
+      &:nth-child(1) {
+        padding-left: 13px;
+      }
       & > div {
         display: flex;
         align-items: center;
