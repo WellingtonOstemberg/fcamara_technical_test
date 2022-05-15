@@ -5,6 +5,7 @@ export const InputTextContainer = styled.div`
   min-width: 540px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
   & > label {
     font-size: 14px;
     display: block;
