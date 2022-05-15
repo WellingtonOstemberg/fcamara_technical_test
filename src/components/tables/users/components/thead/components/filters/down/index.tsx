@@ -1,4 +1,4 @@
-import { handleFilter } from 'components/table/users/utils'
+import { handleFilter } from 'components/tables/users/utils'
 import { BiChevronDown } from 'react-icons/bi'
 type TableUsersTHeadFilterDownProps = { filter: string }
 export const TableUsersTHeadFilterDown = ({

@@ -1,5 +1,4 @@
-import { BtnPrimaryLifted } from 'components/buttons'
-import { SearchInput } from 'components/input'
+import { SearchInput, BtnPrimaryLifted } from 'components'
 import { FiSave } from 'react-icons/fi'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { NavItemWrapper } from './styles'
