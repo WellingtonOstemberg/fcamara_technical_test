@@ -1,6 +1,17 @@
-import { TableUsers } from 'components'
+import { CardHeaderCampanha, TableUsers } from 'components'
 import { usersMock } from 'mocks/users'
+import { useNavigate } from 'react-router-dom'
 
 export const Users = () => {
-  return <TableUsers users={usersMock} />
+  const navigate = useNavigate()
+  const handleNavigate = () => {
+    navigate('/usuarios/novo')
+  }
+
+  return (
+    <>
+      <CardHeaderCampanha onClick={handleNavigate} />
+      <TableUsers users={usersMock} />
+    </>
+  )
 }
