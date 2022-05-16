@@ -12,5 +12,9 @@ export const networksMock = [
 export const storesMock = [
   { id: 1, description: 'Loja Centro' },
   { id: 2, description: 'Loja Vila Costa' },
-  { id: 3, description: 'Loja 07' },
+  { id: 3, description: 'Loja 01' },
+  { id: 4, description: 'Loja 02' },
+  { id: 5, description: 'Loja 03' },
+  { id: 6, description: 'Loja 04' },
+  { id: 7, description: 'Loja 05' },
 ]
