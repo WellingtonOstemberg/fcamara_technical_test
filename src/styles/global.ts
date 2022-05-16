@@ -15,4 +15,8 @@ export default createGlobalStyle`
     .search-input-icon {
         color: ${(props) => props.theme.colors.grayLight};
     }
+    .swal2-styled.swal2-confirm {
+        background-color: ${(props) => props.theme.colors.success};
+        color: ${(props) => props.theme.colors.black}
+    }
 `
