@@ -27,8 +27,12 @@ export const TabelUsersListItem = ({ user }: TabelUsersListItemProps) => {
         <InputSwitch active={user.status} />
       </td>
       <td>
-        <BtnAction />
-        <BtnAction style={{ marginLeft: '8px' }} kind="delete" />
+        <BtnAction to={`/usuarios/edit/${user.id}`} />
+        <BtnAction
+          to={`/usuarios/delete/${user.id}`}
+          style={{ marginLeft: '8px' }}
+          kind="delete"
+        />
       </td>
     </TableUsersTBodyTr>
   )
