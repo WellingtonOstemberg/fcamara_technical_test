@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { TestWrapper } from '../../../../../../../utils'
-import { usersMock } from '../../../../../../../utils/tests/mocks/users'
+import { TestWrapper, usersMock } from '../../../../../../../utils'
 import { TabelUsersListItem } from '.'
 
 describe('TabelUsersListItem [Component]', () => {
