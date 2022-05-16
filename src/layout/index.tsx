@@ -1,4 +1,3 @@
-import { CardHeaderCampanha } from 'components'
 import { MainRoutes } from 'routes'
 import { HeaderLayout } from './header'
 import { SidebarLayout } from './sidebar'
@@ -11,7 +10,6 @@ export const Layout = () => {
       <Wrapper>
         <SidebarLayout />
         <WrapperMain>
-          <CardHeaderCampanha />
           <MainRoutes />
         </WrapperMain>
       </Wrapper>

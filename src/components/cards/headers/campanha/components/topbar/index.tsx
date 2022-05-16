@@ -1,9 +1,13 @@
 import { TopbarItem } from './components/navitem'
 import * as S from './styles'
-export const Topbar = () => {
+
+type TopbarProps = {
+  onClick: () => void
+}
+export const Topbar = ({ onClick }: TopbarProps) => {
   return (
     <S.Topbar>
-      <TopbarItem />
+      <TopbarItem onClick={onClick} />
     </S.Topbar>
   )
 }

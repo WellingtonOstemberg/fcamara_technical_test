@@ -1,25 +1,33 @@
 import { SearchInput, BtnPrimaryLifted } from 'components'
 import { FiSave } from 'react-icons/fi'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { NavItemWrapper } from './styles'
-
-export const TopbarItem = () => {
+type TopbarItemProps = {
+  onClick: () => void
+}
+export const TopbarItem = ({ onClick }: TopbarItemProps) => {
   const location = useLocation()
-  const navigate = useNavigate()
-  const handleSaveUser = () => {
-    console.log('salvar usuário')
-  }
-  const handleNewUser = () => {
-    return navigate('/usuarios/novo')
-  }
 
   if (location.pathname.indexOf('/usuarios/editar/') !== -1) {
     return (
       <NavItemWrapper>
         <BtnPrimaryLifted
-          onClick={handleSaveUser}
+          onClick={onClick}
           width="184px"
           text="Salvar Alterações"
+          icon={<FiSave />}
+        />
+      </NavItemWrapper>
+    )
+  }
+
+  if (location.pathname.indexOf('/usuarios/deletar/') !== -1) {
+    return (
+      <NavItemWrapper>
+        <BtnPrimaryLifted
+          onClick={onClick}
+          width="184px"
+          text="Remover usuário"
           icon={<FiSave />}
         />
       </NavItemWrapper>
@@ -32,7 +40,7 @@ export const TopbarItem = () => {
         <NavItemWrapper>
           <SearchInput />
           <BtnPrimaryLifted
-            onClick={handleNewUser}
+            onClick={onClick}
             width="184px"
             text="Novo usuário"
           />
@@ -42,7 +50,7 @@ export const TopbarItem = () => {
       return (
         <NavItemWrapper>
           <BtnPrimaryLifted
-            onClick={handleSaveUser}
+            onClick={onClick}
             width="184px"
             text="Salvar Alterações"
             icon={<FiSave />}
