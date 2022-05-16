@@ -1,6 +1,7 @@
 import { UserType } from '../../types'
 export const usersMock: UserType[] = [
   {
+    id: 1,
     nome: 'André Gomes da Silva',
     password: '9adjzH4tXGVs',
     email: 'andre.gomes@drogariaconviva.com.br',
@@ -11,6 +12,7 @@ export const usersMock: UserType[] = [
     status: true,
   },
   {
+    id: 2,
     nome: 'Carolina Oliveira do Carmo Perez',
     password: '6WaM5gYyWQyA',
     email: 'carol.perez@drogariaconviva.com.br',
@@ -21,6 +23,7 @@ export const usersMock: UserType[] = [
     status: false,
   },
   {
+    id: 3,
     nome: 'Damiano Gustavo Souza Lino',
     password: 'yFm9XznN8XCR',
     email: 'damiano.lino@drogariaconviva.com.br',
@@ -31,6 +34,7 @@ export const usersMock: UserType[] = [
     status: true,
   },
   {
+    id: 4,
     nome: 'Eduardo Leite de Almeida Santos',
     password: 'GttDtjaxnXGn',
     email: 'eduardo.santos@drogariaconviva.com.br',
@@ -41,6 +45,7 @@ export const usersMock: UserType[] = [
     status: true,
   },
   {
+    id: 5,
     nome: 'Fagner Soares da Silva',
     password: 'XwmtNtWrNuwT',
     email: 'fagner.silva@drogariaconviva.com.br',
@@ -51,6 +56,7 @@ export const usersMock: UserType[] = [
     status: true,
   },
   {
+    id: 6,
     nome: 'Wellington Luiz Benedito Ostemberg',
     password: '8CHjVNnGBsyu',
     email: 'wellington.ostemberg@drogariaconviva.com.br',
