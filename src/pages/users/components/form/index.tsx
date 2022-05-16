@@ -23,12 +23,6 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
     user.nome && setName(user.nome)
     user.cpf && setCpf(user.cpf)
     user.email && setEmail(user.email)
-    user.perfil &&
-      setAccessProfile(
-        accessProfilesMock.filter(
-          (access) => access.description === user.perfil,
-        )[0].id,
-      )
     user.loja && setStores(user?.loja)
     user.status && setStatus(user.status)
     user.perfil && setProfile(user.perfil)

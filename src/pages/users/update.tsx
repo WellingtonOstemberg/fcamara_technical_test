@@ -2,7 +2,7 @@ import { CardHeaderCampanha } from 'components'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
 import { UserType } from 'types'
-import { UserForm } from './components'
+import { UserForm } from './components/form'
 
 export const UserUpdate = () => {
   const [user, setUser] = useState<UserType>({})
