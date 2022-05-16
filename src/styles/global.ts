@@ -8,6 +8,7 @@ export default createGlobalStyle`
     }
     body {
         min-heigth: 100vh;
+        overflow-x: hidden;
         font-family: 'Lato', sans-serif;
         background-color: ${(props) => props.theme.colors.background}
     }

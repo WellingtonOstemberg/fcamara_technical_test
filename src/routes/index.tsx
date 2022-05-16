@@ -1,4 +1,5 @@
 import { Home } from 'pages/home'
+import { UserCreate } from 'pages/users/create'
 import { Route, Routes } from 'react-router-dom'
 import { menusAdminMock, sidebarMock } from 'utils'
 
@@ -8,7 +9,7 @@ export const MainRoutes = () => {
     ...sidebarMock,
     {
       path: 'usuarios/novo',
-      element: <Home />,
+      element: <UserCreate />,
     },
     {
       path: 'usuarios/editar/:id',

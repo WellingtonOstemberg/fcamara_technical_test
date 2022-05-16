@@ -23,7 +23,9 @@ export const SelectSimple = ({ label, data }: SelectSimpleProps) => {
 
   return (
     <SelectSimpleContainer>
-      <label htmlFor={inputId}>{label}</label>
+      <label htmlFor={inputId} aria-label={label}>
+        {label}
+      </label>
       <div onClick={() => setProfilesListActive((s) => !s)}>
         <span>
           {profileSelected !== 0

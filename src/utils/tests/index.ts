@@ -1,2 +1,2 @@
 export * from './wrapper'
-export * from './mocks'
+export * from '../../mocks'
