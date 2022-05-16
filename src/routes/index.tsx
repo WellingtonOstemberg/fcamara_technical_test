@@ -1,5 +1,6 @@
 import { Home } from 'pages/home'
 import { UserCreate } from 'pages/users/create'
+import { UserUpdate } from 'pages/users/update'
 import { Route, Routes } from 'react-router-dom'
 import { menusAdminMock, sidebarMock } from 'utils'
 
@@ -13,7 +14,7 @@ export const MainRoutes = () => {
     },
     {
       path: 'usuarios/editar/:id',
-      element: <Home />,
+      element: <UserUpdate />,
     },
   ]
   return (
