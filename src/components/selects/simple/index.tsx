@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { generateMutableString } from 'utils'
 import { SelectSimpleContainer } from './styles'
 type SelectOptionsDataType = {
@@ -8,18 +8,29 @@ type SelectOptionsDataType = {
 type SelectSimpleProps = {
   label?: string
   data?: SelectOptionsDataType[]
+  selectedItem?: number
+  selected: number
+  setSelected: React.Dispatch<React.SetStateAction<number>>
 }
-export const SelectSimple = ({ label, data }: SelectSimpleProps) => {
+export const SelectSimple = ({
+  label,
+  data,
+  selectedItem,
+  selected,
+  setSelected,
+}: SelectSimpleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
-  const [profileSelected, setProfileSelected] = useState(
-    data && data.length > 0 ? data[0].id : 0,
-  )
   const inputId = generateMutableString()
 
   const handleProfileItem = (id: number) => {
     setProfilesListActive((s) => !s)
-    setProfileSelected(id)
+    setSelected(id)
   }
+
+  useEffect(() => {
+    data && data.length > 0 ? data[0].id : 0
+    selectedItem && setSelected(selectedItem)
+  }, [])
 
   return (
     <SelectSimpleContainer>
@@ -28,9 +39,8 @@ export const SelectSimple = ({ label, data }: SelectSimpleProps) => {
       </label>
       <div onClick={() => setProfilesListActive((s) => !s)}>
         <span>
-          {profileSelected !== 0
-            ? data?.filter((profile) => profile.id === profileSelected)[0]
-                .description
+          {selected !== 0
+            ? data?.filter((profile) => profile.id === selected)[0].description
             : 'Selecione um perfil'}
         </span>
       </div>
@@ -39,7 +49,7 @@ export const SelectSimple = ({ label, data }: SelectSimpleProps) => {
           data.map((item) => {
             return (
               <li
-                className={profileSelected === item.id ? 'active' : ''}
+                className={selected === item.id ? 'active' : ''}
                 key={item.id}
                 value={item.id}
                 onClick={() => handleProfileItem(item.id)}
