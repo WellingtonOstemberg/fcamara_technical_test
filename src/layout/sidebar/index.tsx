@@ -18,7 +18,7 @@ export const SidebarLayout = () => {
             key={navItem.path}
             icon={navItem.icon}
             text={navItem.name}
-            active={location.pathname === navItem.path}
+            active={location.pathname.indexOf(navItem.path) !== -1}
           />
         )
       })}
