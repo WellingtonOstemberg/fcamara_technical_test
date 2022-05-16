@@ -8,29 +8,26 @@ type SelectOptionsDataType = {
 type SelectSimpleProps = {
   label?: string
   data?: SelectOptionsDataType[]
-  selectedItem?: number
-  selected: number
-  setSelected: React.Dispatch<React.SetStateAction<number>>
+  selected: string
+  setSelected: React.Dispatch<React.SetStateAction<string>>
 }
 export const SelectSimple = ({
   label,
   data,
-  selectedItem,
   selected,
   setSelected,
 }: SelectSimpleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
   const inputId = generateMutableString()
 
-  const handleProfileItem = (id: number) => {
-    setProfilesListActive((s) => !s)
-    setSelected(id)
-  }
-
   useEffect(() => {
-    data && data.length > 0 ? data[0].id : 0
-    selectedItem && setSelected(selectedItem)
+    console.log(selected, 'aqui')
   }, [])
+
+  const handleProfileItem = (description: string) => {
+    setProfilesListActive((s) => !s)
+    setSelected(description)
+  }
 
   return (
     <SelectSimpleContainer>
@@ -39,8 +36,12 @@ export const SelectSimple = ({
       </label>
       <div onClick={() => setProfilesListActive((s) => !s)}>
         <span>
-          {selected !== 0
-            ? data?.filter((profile) => profile.id === selected)[0].description
+          {selected
+            ? data &&
+              data.filter((profile) => profile.description === selected)
+                .length > 0 &&
+              data?.filter((profile) => profile.description === selected)[0]
+                .description
             : 'Selecione um perfil'}
         </span>
       </div>
@@ -49,10 +50,10 @@ export const SelectSimple = ({
           data.map((item) => {
             return (
               <li
-                className={selected === item.id ? 'active' : ''}
+                className={selected === item.description ? 'active' : ''}
                 key={item.id}
                 value={item.id}
-                onClick={() => handleProfileItem(item.id)}
+                onClick={() => handleProfileItem(item.description)}
               >
                 {item.description}
               </li>

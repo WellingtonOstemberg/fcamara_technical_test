@@ -13,11 +13,10 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
   const [name, setName] = useState('')
   const [cpf, setCpf] = useState('')
   const [email, setEmail] = useState('')
-  const [accessProfile, setAccessProfile] = useState<number>(0)
-  const [networks, setNetworks] = useState([])
+  const [networks, setNetworks] = useState<string[]>([])
   const [stores, setStores] = useState<string[]>([])
   const [status, setStatus] = useState(true)
-  const [profile, setProfile] = useState<string>()
+  const [profile, setProfile] = useState<string>('')
 
   const handleUser = (user: UserType) => {
     user.nome && setName(user.nome)
@@ -26,6 +25,8 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
     user.loja && setStores(user?.loja)
     user.status && setStatus(user.status)
     user.perfil && setProfile(user.perfil)
+    user.rede && setNetworks(user.rede)
+    user.loja && setStores(user.loja)
   }
 
   useEffect(() => {
@@ -58,18 +59,24 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
         <InputText value={cpf} setValue={setCpf} label="CPF" />
         <InputText value={email} setValue={setEmail} label="Email" />
         <SelectSimple
-          setSelected={setAccessProfile}
-          selected={accessProfile}
+          setSelected={setProfile}
+          selected={profile}
           label="Perfil de Acesso"
           data={accessProfilesMock}
         />
         <SelectMultiple
+          selected={networks}
+          defaultSelected={userData?.rede || []}
+          setSelected={setNetworks}
           label="Redes"
           data={networksMock}
           defaultText={'Todas as Redes'}
           legend={'Você pode selecionar múltiplas redes'}
         />
         <SelectMultiple
+          selected={stores}
+          defaultSelected={userData?.loja || []}
+          setSelected={setStores}
           label="Lojas"
           data={storesMock}
           defaultText={'Todas as Lojas'}

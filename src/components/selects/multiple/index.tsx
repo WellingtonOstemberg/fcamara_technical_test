@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { generateMutableString } from 'utils'
 import { SelectMultipleContainer } from './styles'
 type SelectOptionsDataType = {
@@ -10,7 +10,9 @@ type SelectMultipleProps = {
   defaultText?: string
   data?: SelectOptionsDataType[]
   legend?: string
-  defaultSelected?: number[]
+  defaultSelected?: string[]
+  selected: string[]
+  setSelected: React.Dispatch<React.SetStateAction<string[]>>
 }
 export const SelectMultiple = ({
   label,
@@ -18,23 +20,26 @@ export const SelectMultiple = ({
   defaultText = 'Nenhum item selecionado',
   legend,
   defaultSelected,
+  selected,
+  setSelected,
 }: SelectMultipleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
-  const [profilesSelected, setProfilesSelected] = useState<number[]>(
-    defaultSelected || [],
-  )
   const inputId = generateMutableString()
 
-  const handleProfileItem = (id: number) => {
+  useEffect(() => {
+    setSelected(defaultSelected || [])
+  }, [])
+
+  const handleProfileItem = (description: string) => {
     setProfilesListActive((s) => !s)
-    if (profilesSelected.includes(id)) {
-      setProfilesSelected(
-        profilesSelected
-          .filter((profileSelected) => profileSelected !== id)
-          .sort((a, b) => a - b),
+    if (selected.includes(description)) {
+      setSelected(
+        selected
+          .filter((profileSelected) => profileSelected !== description)
+          .sort(),
       )
     } else {
-      setProfilesSelected([...profilesSelected, id].sort((a, b) => a - b))
+      setSelected([...selected, description].sort())
     }
   }
 
@@ -44,14 +49,15 @@ export const SelectMultiple = ({
         {label}
       </label>
       <div onClick={() => setProfilesListActive((s) => !s)}>
-        {profilesSelected.length > 0 ? (
-          profilesSelected.map((profile, index) => (
+        {selected.length > 0 ? (
+          selected.map((profile, index) => (
             <span>
               {index > 0 && ', '}
-              {
-                data?.filter((dataItem) => dataItem.id === profile)[0]
-                  .description
-              }
+              {data &&
+                data?.filter((dataItem) => dataItem.description === profile)
+                  .length > 0 &&
+                data?.filter((dataItem) => dataItem.description === profile)[0]
+                  .description}
             </span>
           ))
         ) : (
@@ -63,10 +69,10 @@ export const SelectMultiple = ({
           data.map((item) => {
             return (
               <li
-                key={item.id}
-                value={item.id}
-                className={profilesSelected.includes(item.id) ? 'active' : ''}
-                onClick={() => handleProfileItem(item.id)}
+                key={item.description}
+                value={item.description}
+                className={selected.includes(item.description) ? 'active' : ''}
+                onClick={() => handleProfileItem(item.description)}
               >
                 {item.description}
               </li>
