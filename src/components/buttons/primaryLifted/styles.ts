@@ -7,6 +7,7 @@ interface ButtonProps {
   color?: string
   borderRadius?: string
   fontSize?: string | number
+  border?: string
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -18,7 +19,7 @@ export const Button = styled.button<ButtonProps>`
   padding: 13px 18px;
   width: ${(props) => props.width || '170px'};
   font-size: ${(props) => props.fontSize || '16px'};
-  border: none;
+  border: ${(props) => props.border || 'none'};
   border-radius: ${(props) => props.borderRadius || '6px'};
   background-color: ${(props) =>
     props.backgroundColor || props.theme.colors.orange};

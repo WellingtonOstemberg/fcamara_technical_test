@@ -4,6 +4,7 @@ interface BtnPrimaryLiftedProps {
   backgroundColor?: string
   color?: string
   borderRadius?: string
+  border?: string
   icon?: IconType | JSX.Element
   text?: string
   width?: string

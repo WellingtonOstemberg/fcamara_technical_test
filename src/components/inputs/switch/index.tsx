@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { SwitchLabel } from './styles'
+import { SwitchContainer, SwitchLabel } from './styles'
 
 type InputSwitchProps = {
   value?: any
@@ -14,9 +14,16 @@ export const InputSwitch = ({ value }: InputSwitchProps) => {
     setCheckedInput((c) => !c)
   }
   return (
-    <SwitchLabel>
-      <input type="checkbox" checked={checkedInput} onChange={handleChecked} />
-      <span className="slider round"></span>
-    </SwitchLabel>
+    <SwitchContainer>
+      <SwitchLabel>
+        <input
+          type="checkbox"
+          checked={checkedInput}
+          onChange={handleChecked}
+        />
+        <span className="slider round"></span>
+      </SwitchLabel>
+      <span>{checkedInput ? 'Ativo' : 'Inativo'}</span>
+    </SwitchContainer>
   )
 }

@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const SwitchContainer = styled.div`
+  & > span {
+    margin-left: 5px;
+  }
+`
+
 export const SwitchLabel = styled.label`
   position: relative;
   display: inline-block;
