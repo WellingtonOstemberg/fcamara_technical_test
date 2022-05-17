@@ -1,16 +1,19 @@
 import { SearchInput, BtnPrimaryLifted } from 'components'
+import { InputSwitch } from 'components/inputs'
 import { FiSave } from 'react-icons/fi'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { NavItemWrapper } from './styles'
 type TopbarItemProps = {
   onClick: () => void
 }
 export const TopbarItem = ({ onClick }: TopbarItemProps) => {
   const location = useLocation()
+  const params = useParams()
 
   if (location.pathname.indexOf('/usuarios/editar/') !== -1) {
     return (
       <NavItemWrapper>
+        <InputSwitch value={params.id} />
         <BtnPrimaryLifted
           onClick={onClick}
           width="184px"

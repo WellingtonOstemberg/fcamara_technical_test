@@ -24,7 +24,7 @@ export const TabelUsersListItem = ({ user }: TabelUsersListItemProps) => {
       </td>
       <td>{user.perfil}</td>
       <td>
-        <InputSwitch active={user.status ? user.status : false} />
+        <InputSwitch value={user.id} />
       </td>
       <td>
         <BtnAction to={`/usuarios/editar/${user.id}`} />
