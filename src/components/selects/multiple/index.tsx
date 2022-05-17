@@ -51,7 +51,7 @@ export const SelectMultiple = ({
       <div onClick={() => setProfilesListActive((s) => !s)}>
         {selected.length > 0 ? (
           selected.map((profile, index) => (
-            <span>
+            <span key={index}>
               {index > 0 && ', '}
               {data &&
                 data?.filter((dataItem) => dataItem.description === profile)
