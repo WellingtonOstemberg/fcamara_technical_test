@@ -1,17 +1,14 @@
-import { useState } from 'react'
+import { useUsersAsyncSlice } from 'store/users'
 import { getAllUsers } from '../api'
-import { getAllUsersTypes } from '../api/types'
 
 export const useAllUsers = () => {
-  const [allUsers, setAllUsers] = useState<getAllUsersTypes>()
+  const { getUsers, usersLoading, usersAsyncSlice } = useUsersAsyncSlice()
 
-  const getUsers = async (): Promise<void> => {
-    setAllUsers({ users: [], error: '', isLoading: true })
-
-    const { users, error, isLoading } = await getAllUsers()
-
-    setAllUsers({ users, error, isLoading })
+  const getFetchUsers = async () => {
+    usersLoading()
+    const users = await getAllUsers()
+    getUsers(users)
   }
 
-  return { getUsers, allUsers }
+  return { usersAsyncSlice, getFetchUsers }
 }

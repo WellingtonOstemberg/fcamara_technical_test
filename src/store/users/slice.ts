@@ -15,12 +15,15 @@ const usersAsyncSlice = createSlice({
     usersLoading(state) {
       return { ...state, isLoading: true }
     },
-    getUsers(state, { payload }: PayloadType) {
+    setUsers(state, { payload }: PayloadType) {
       return { ...state, ...payload }
+    },
+    getUsers(state) {
+      return { ...state }
     },
   },
 })
 
-export const { usersLoading, getUsers } = usersAsyncSlice.actions
+export const { usersLoading, setUsers, getUsers } = usersAsyncSlice.actions
 
 export const usersAsync = usersAsyncSlice.reducer
