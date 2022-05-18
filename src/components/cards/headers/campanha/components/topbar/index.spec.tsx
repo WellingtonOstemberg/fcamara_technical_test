@@ -5,10 +5,11 @@ import { MemoryRouter } from 'react-router-dom'
 
 describe('Topbar [Component]', () => {
   it('Should render with correct children', () => {
+    const onClick = jest.fn()
     render(
       <MemoryRouter initialEntries={[{ pathname: '/usuarios/novo' }]}>
         <TestWrapperWithoutRoutes>
-          <Topbar />
+          <Topbar onClick={onClick} />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )

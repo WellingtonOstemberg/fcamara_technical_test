@@ -48,4 +48,26 @@ describe('SelectMultiple [Component]', () => {
     const items = screen.getAllByText(descriptionMock)
     items.forEach((item) => expect(item).toBeInTheDocument())
   })
+  it('Should render a input with correct label and items', () => {
+    const labelTextMock = generateMutableString()
+    const descriptionMock = generateMutableString()
+    const setStateMocked = jest.fn()
+    const useStateMock: any = (useState: any) => [useState, setStateMocked]
+    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
+    const [selectedMock, setSelectedMock] = useStateMock([descriptionMock])
+    render(
+      <TestWrapper>
+        <SelectMultiple
+          selected={selectedMock}
+          setSelected={setSelectedMock}
+          label={labelTextMock}
+          data={[{ id: 1, description: descriptionMock }]}
+        />
+      </TestWrapper>,
+    )
+    const label = screen.getByLabelText(labelTextMock)
+    expect(label).toBeInTheDocument()
+    const items = screen.getAllByText(descriptionMock)
+    items.forEach((item) => expect(item).toBeInTheDocument())
+  })
 })

@@ -1,13 +1,22 @@
 import { render, screen } from '@testing-library/react'
 import { generateMutableString, TestWrapper } from '../../../utils'
 import { InputText } from '.'
+import React from 'react'
 
 describe('InputText [Component]', () => {
   it('Should render a input with correct label', () => {
     const labelTextMock = generateMutableString()
+    const setStateMocked = jest.fn()
+    const useStateMock: any = (useState: any) => [useState, setStateMocked]
+    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
+    const [selectedMock, setSelectedMock] = useStateMock('')
     render(
       <TestWrapper>
-        <InputText label={labelTextMock} />
+        <InputText
+          value={selectedMock}
+          setValue={setSelectedMock}
+          label={labelTextMock}
+        />
       </TestWrapper>,
     )
     const label = screen.getByLabelText(labelTextMock)
@@ -17,9 +26,18 @@ describe('InputText [Component]', () => {
   })
   it('Should render a input with an errorMessage', () => {
     const labelErrorMock = generateMutableString()
+    const setStateMocked = jest.fn()
+    const useStateMock: any = (useState: any) => [useState, setStateMocked]
+    jest.spyOn(React, 'useState').mockImplementation(useStateMock)
+    const [selectedMock, setSelectedMock] = useStateMock('')
     render(
       <TestWrapper>
-        <InputText validate={false} errorMessage={labelErrorMock} />
+        <InputText
+          value={selectedMock}
+          setValue={setSelectedMock}
+          validate={false}
+          errorMessage={labelErrorMock}
+        />
       </TestWrapper>,
     )
     const err = screen.getByText(labelErrorMock)

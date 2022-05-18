@@ -5,19 +5,21 @@ import { MemoryRouter } from 'react-router-dom'
 
 describe('CardHeaderCampanha [Component]', () => {
   it('Should render with correct children and title', () => {
+    const onclick = jest.fn()
     render(
       <TestWrapper>
-        <CardHeaderCampanha />
+        <CardHeaderCampanha onClick={onclick} />
       </TestWrapper>,
     )
     const text = screen.getByText('Default')
     expect(text).toBeInTheDocument()
   })
   it('Should render with correct children and title', () => {
+    const onclick = jest.fn()
     render(
       <MemoryRouter initialEntries={[{ pathname: '/usuarios/novo' }]}>
         <TestWrapperWithoutRoutes>
-          <CardHeaderCampanha />
+          <CardHeaderCampanha onClick={onclick} />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )

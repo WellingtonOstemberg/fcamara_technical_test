@@ -5,7 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { BsLightningCharge } from 'react-icons/bs'
 import { useLocation, useParams } from 'react-router-dom'
 import { NavItemWrapper } from './styles'
-import Swal from 'sweetalert2'
+import { handleReset, handleDelete } from './utils/handlers/clicks'
 type TopbarItemProps = {
   onClick: () => void
 }
@@ -14,42 +14,6 @@ export const TopbarItem = ({ onClick }: TopbarItemProps) => {
   const params = useParams()
 
   if (location.pathname.indexOf('/usuarios/editar/') !== -1) {
-    const handleDelete = () => {
-      Swal.fire({
-        title: 'Excluir usuário',
-        text: 'Você deseja excluir este usuário definitivamente? Esta ação não poderá ser desfeita.',
-        icon: 'warning',
-        color: 'red',
-        showDenyButton: true,
-        confirmButtonText: 'Sim',
-        denyButtonText: `Não`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          Swal.fire('Usuário removido com sucesso!', '', 'success')
-        } else if (result.isDenied) {
-          Swal.fire('A ação foi cancelada', '', 'error')
-        }
-      })
-    }
-    const handleReset = () => {
-      Swal.fire({
-        title: 'Resetar senha',
-        text: 'Você deseja resetar a senha deste usuário?',
-        icon: 'warning',
-        color: 'red',
-        showDenyButton: true,
-        confirmButtonText: 'Sim',
-        denyButtonText: `Não`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          Swal.fire('Senha resetada com sucesso!', '', 'success')
-        } else if (result.isDenied) {
-          Swal.fire('A ação foi cancelada', '', 'error')
-        }
-      })
-    }
     return (
       <NavItemWrapper>
         <InputSwitch value={params.id} />
