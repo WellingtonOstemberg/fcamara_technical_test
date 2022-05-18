@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { generateMutableString } from 'utils'
 import { SelectSimpleContainer } from './styles'
 type SelectOptionsDataType = {
@@ -19,10 +19,6 @@ export const SelectSimple = ({
 }: SelectSimpleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
   const inputId = generateMutableString()
-
-  useEffect(() => {
-    console.log(selected, 'aqui')
-  }, [])
 
   const handleProfileItem = (description: string) => {
     setProfilesListActive((s) => !s)
