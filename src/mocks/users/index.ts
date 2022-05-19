@@ -62,7 +62,7 @@ export const usersMock: UserType[] = [
     email: 'wellington.ostemberg@drogariaconviva.com.br',
     cpf: '953.133.891-49',
     loja: [],
-    rede: [],
+    rede: ['Drograrias Conviva'],
     perfil: 'Desenvolvimento - PL',
     status: true,
   },
