@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import { TestWrapper, usersMock } from '../../../../../../../utils'
+import { TestWrapperWithStore, usersMock } from '../../../../../../../utils'
 import { TabelUsersListItem } from '.'
 
 describe('TabelUsersListItem [Component]', () => {
   it('Should render table elements correctly', () => {
     render(
-      <TestWrapper>
+      <TestWrapperWithStore>
         <table>
           <tbody>
             {usersMock.map(
@@ -16,7 +16,7 @@ describe('TabelUsersListItem [Component]', () => {
             )}
           </tbody>
         </table>
-      </TestWrapper>,
+      </TestWrapperWithStore>,
     )
     const tr = screen.getAllByRole('rowgroup')
     for (let index = 0; index < tr.length; index++) {
