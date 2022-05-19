@@ -1,5 +1,8 @@
 import { InputSwitch } from 'components'
 import { BtnAction } from 'components/buttons/action'
+import { BtnNoAction } from 'components/buttons/noAction'
+import { useDeleteUser } from 'services'
+import Swal from 'sweetalert2'
 import { UserType } from 'types'
 import { TableUsersTBodyTr } from './styles'
 
@@ -7,6 +10,16 @@ type TabelUsersListItemProps = {
   user: UserType
 }
 export const TabelUsersListItem = ({ user }: TabelUsersListItemProps) => {
+  const { deleteFetchUser } = useDeleteUser()
+
+  const handleDelete = () => {
+    Swal.fire({
+      text: 'Usuário removido com sucesso!',
+      icon: 'success',
+      width: '300px',
+    })
+    deleteFetchUser(user.id || 0)
+  }
   return (
     <TableUsersTBodyTr key={user.email}>
       <td>
@@ -28,10 +41,9 @@ export const TabelUsersListItem = ({ user }: TabelUsersListItemProps) => {
       </td>
       <td>
         <BtnAction to={`/usuarios/editar/${user.id}`} />
-        <BtnAction
-          to={`/usuarios/deletar/${user.id}`}
-          style={{ marginLeft: '8px' }}
-          kind="delete"
+        <BtnNoAction
+          style={{ marginLeft: '8px', color: '#f00' }}
+          onClick={handleDelete}
         />
       </td>
     </TableUsersTBodyTr>

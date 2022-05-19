@@ -1,18 +1,7 @@
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import { TableUsersTHeadFilter } from './components'
 import * as S from './styles'
-type FiltersType =
-  | 'nameUp'
-  | 'nameDown'
-  | 'profileUp'
-  | 'profileDown'
-  | 'statusUp'
-  | 'statusDown'
-type TableUsersTHeadProps = {
-  handleFilter: (filter: FiltersType) => void
-}
 
-export const TableUsersTHead = ({ handleFilter }: TableUsersTHeadProps) => {
+export const TableUsersTHead = () => {
   return (
     <S.TableUsersTHead>
       <tr>
