@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { CgDanger } from 'react-icons/cg'
 import { generateMutableString } from 'utils'
 import { SelectMultipleContainer } from './styles'
 type SelectOptionsDataType = {
@@ -13,6 +14,8 @@ type SelectMultipleProps = {
   defaultSelected?: string[]
   selected: string[]
   setSelected: React.Dispatch<React.SetStateAction<string[]>>
+  validate?: boolean
+  errorMessage?: string
 }
 export const SelectMultiple = ({
   label,
@@ -22,9 +25,20 @@ export const SelectMultiple = ({
   defaultSelected,
   selected,
   setSelected,
+  validate = true,
+  errorMessage = 'Dados inválidos',
 }: SelectMultipleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
   const inputId = generateMutableString()
+
+  const errorNotification = () => {
+    return (
+      <>
+        <CgDanger />
+        <span>{errorMessage}</span>
+      </>
+    )
+  }
 
   useEffect(() => {
     setSelected(defaultSelected || [])
@@ -82,7 +96,15 @@ export const SelectMultiple = ({
           <li>{defaultText}</li>
         )}
       </ul>
-      {legend && <label className="label-text-validator">{legend}</label>}
+      {validate ? (
+        <label className="label-text-validator">{legend}</label>
+      ) : (
+        !validate && (
+          <label className="label-text-validator-error">
+            {errorNotification()}
+          </label>
+        )
+      )}
     </SelectMultipleContainer>
   )
 }

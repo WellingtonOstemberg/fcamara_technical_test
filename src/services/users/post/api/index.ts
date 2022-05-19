@@ -7,6 +7,7 @@ export const postUser = async (user: UserType): Promise<postUserTypes> => {
   try {
     // the asyncronous call will be done here
     const data = user
+    console.log(user, 'postUser')
 
     return {
       user: data,

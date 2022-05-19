@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CgDanger } from 'react-icons/cg'
 import { generateMutableString } from 'utils'
 import { SelectSimpleContainer } from './styles'
 type SelectOptionsDataType = {
@@ -10,12 +11,16 @@ type SelectSimpleProps = {
   data?: SelectOptionsDataType[]
   selected: string
   setSelected: React.Dispatch<React.SetStateAction<string>>
+  validate?: boolean
+  errorMessage?: string
 }
 export const SelectSimple = ({
   label,
   data,
   selected,
   setSelected,
+  validate = true,
+  errorMessage = 'Dados inválidos',
 }: SelectSimpleProps) => {
   const [profilesListActive, setProfilesListActive] = useState(false)
   const inputId = generateMutableString()
@@ -23,6 +28,15 @@ export const SelectSimple = ({
   const handleProfileItem = (description: string) => {
     setProfilesListActive((s) => !s)
     setSelected(description)
+  }
+
+  const errorNotification = () => {
+    return (
+      <>
+        <CgDanger />
+        <span>{errorMessage}</span>
+      </>
+    )
   }
 
   return (
@@ -59,6 +73,11 @@ export const SelectSimple = ({
           <option>Nenhum item a ser exibido</option>
         )}
       </ul>
+      {!validate && (
+        <label className="label-text-validator-error">
+          {errorNotification()}
+        </label>
+      )}
     </SelectSimpleContainer>
   )
 }

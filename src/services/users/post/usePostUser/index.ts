@@ -2,7 +2,7 @@ import { useUsersAsyncSlice } from 'store/users'
 import { UserType } from 'types'
 import { postUser } from '../api'
 
-export const usePotUser = () => {
+export const usePostUser = () => {
   const { setUser, usersLoading, usersAsyncSlice } = useUsersAsyncSlice()
 
   const postFetchUser = async (userParam: UserType) => {

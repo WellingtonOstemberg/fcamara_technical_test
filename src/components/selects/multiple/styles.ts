@@ -67,4 +67,10 @@ export const SelectMultipleContainer = styled.div`
     font-size: 14px;
     position: absolute;
   }
+  .label-text-validator-error {
+    margin-top: 95px;
+    color: ${(props) => props.theme.colors.red};
+    font-size: 14px;
+    position: absolute;
+  }
 `

@@ -61,4 +61,10 @@ export const SelectSimpleContainer = styled.div`
       color: ${(props) => props.theme.colors.white};
     }
   }
+  .label-text-validator-error {
+    margin-top: 95px;
+    color: ${(props) => props.theme.colors.red};
+    font-size: 14px;
+    position: absolute;
+  }
 `
