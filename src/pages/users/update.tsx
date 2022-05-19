@@ -1,8 +1,4 @@
 import { BtnPrimaryLifted, CardHeaderCampanha, InputSwitch } from 'components'
-import {
-  handleReset,
-  handleDelete,
-} from 'components/cards/headers/campanha/components/topbar/components/navitem/utils/handlers/clicks'
 import { useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { BsLightningCharge } from 'react-icons/bs'
@@ -13,6 +9,7 @@ import Swal from 'sweetalert2'
 import { UserType } from 'types'
 import { UserForm } from './components/form'
 import { NavItemWrapper } from './style'
+import { handleDelete, handleReset } from './utils'
 
 export const UserUpdate = () => {
   const [user, setUser] = useState<UserType>({})

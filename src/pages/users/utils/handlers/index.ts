@@ -1,3 +1,4 @@
+import { colors } from 'styles/colors'
 import Swal from 'sweetalert2'
 
 export const handleDelete = () => {
@@ -26,7 +27,9 @@ export const handleReset = () => {
     color: 'red',
     showDenyButton: true,
     confirmButtonText: 'Sim',
+    confirmButtonColor: colors.orange,
     denyButtonText: `Não`,
+    denyButtonColor: colors.red,
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {

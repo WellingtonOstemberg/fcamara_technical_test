@@ -16,6 +16,9 @@ export const Breadcrumbs = () => {
     case '/usuarios/novo':
       text = 'Novo Usuário'
       break
+    case '/':
+      text = 'Seja bem-vindo!'
+      break
   }
   return <S.Breadcrumbs>{text}</S.Breadcrumbs>
 }

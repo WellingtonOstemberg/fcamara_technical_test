@@ -1,7 +1,6 @@
-import { Home } from 'pages/home'
 import { UserCreate } from 'pages/users/create'
 import { UserUpdate } from 'pages/users/update'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { menusAdminMock, sidebarMock } from 'utils'
 
 export const MainRoutes = () => {
@@ -19,7 +18,7 @@ export const MainRoutes = () => {
   ]
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to={'/usuarios'} />} />
       {routes.map((menu) => {
         return <Route key={menu.path} path={menu.path} element={menu.element} />
       })}
