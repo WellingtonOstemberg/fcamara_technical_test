@@ -12,11 +12,16 @@ import { NavItemWrapper } from './style'
 
 export const Users = () => {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useState('')
   const { getFetchUsers, usersAsyncSlice } = useAllUsers()
   const [users, setUsers] = useState<UserType[]>([])
   const handleNavigate = () => {
     navigate('/usuarios/novo')
   }
+
+  useEffect(() => {
+    console.log('Estou buscando por: ', searchParams)
+  }, [searchParams])
 
   useEffect(() => {
     setUsers(
@@ -30,7 +35,7 @@ export const Users = () => {
   const routeHeader = () => {
     return (
       <NavItemWrapper>
-        <SearchInput />
+        <SearchInput value={searchParams} setValue={setSearchParams} />
         <BtnPrimaryLifted
           onClick={handleNavigate}
           width="184px"
