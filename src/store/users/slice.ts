@@ -22,13 +22,22 @@ const usersAsyncSlice = createSlice({
     setUser(state, action: PayloadAction<UserType>) {
       return { ...state, users: [...state.users, action.payload] }
     },
+    setUserUpdate(state, action: PayloadAction<UserType>) {
+      console.log(action.payload, 'action.payload')
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          user.id === action.payload.id ? { ...user, ...action.payload } : user,
+        ),
+      }
+    },
     getUsers(state) {
       return { ...state }
     },
   },
 })
 
-export const { usersLoading, setUsers, getUsers, setUser } =
+export const { usersLoading, setUsers, getUsers, setUser, setUserUpdate } =
   usersAsyncSlice.actions
 
 export const usersAsync = usersAsyncSlice.reducer

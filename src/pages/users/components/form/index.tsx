@@ -4,7 +4,6 @@ import { accessProfilesMock, networksMock, storesMock, usersMock } from 'utils'
 import { UserType } from 'types'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { validateUserFields } from 'pages/users/utils'
 type UserFormProps = {
   userData?: UserType
   setUser: React.Dispatch<React.SetStateAction<UserType>>
@@ -12,6 +11,7 @@ type UserFormProps = {
 export const UserForm = ({ userData, setUser }: UserFormProps) => {
   const { id } = useParams()
   const [name, setName] = useState('')
+  const [idParam, setidParam] = useState<number>(Number(id))
   const [cpf, setCpf] = useState('')
   const [email, setEmail] = useState('')
   const [networks, setNetworks] = useState<string[]>([])
@@ -40,6 +40,9 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
   useEffect(() => {
     setUser({ ...userData, perfil: profile })
   }, [profile])
+  useEffect(() => {
+    setUser({ ...userData, id: idParam })
+  }, [profile])
 
   const handleUser = (user: UserType) => {
     user.nome && setName(user.nome)
@@ -53,9 +56,12 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
   }
 
   useEffect(() => {
-    id
-      ? handleUser(usersMock.filter((user) => String(user.id) === id)[0])
-      : setUser({})
+    if (id) {
+      setidParam(Number(id))
+      handleUser(usersMock.filter((user) => String(user.id) === id)[0])
+    } else {
+      setUser({})
+    }
   }, [])
 
   useEffect(() => {
