@@ -16,6 +16,7 @@ export const Input = styled.input`
   border: none;
 `
 export const SearchIconWrapper = styled.div`
+  cursor: pointer;
   height: 32px;
   width: 32px;
   margin-left: -45px;
