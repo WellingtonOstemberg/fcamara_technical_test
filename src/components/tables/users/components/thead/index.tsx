@@ -1,9 +1,15 @@
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import { TableUsersTHeadFilter } from './components'
 import * as S from './styles'
-
+type FiltersType =
+  | 'nameUp'
+  | 'nameDown'
+  | 'profileUp'
+  | 'profileDown'
+  | 'statusUp'
+  | 'statusDown'
 type TableUsersTHeadProps = {
-  handleFilter: (filter: string) => void
+  handleFilter: (filter: FiltersType) => void
 }
 
 export const TableUsersTHead = ({ handleFilter }: TableUsersTHeadProps) => {
@@ -13,34 +19,25 @@ export const TableUsersTHead = ({ handleFilter }: TableUsersTHeadProps) => {
         <th>
           <div>
             <span>Rede</span>
-            <TableUsersTHeadFilter />
+            <TableUsersTHeadFilter param="network" />
           </div>
         </th>
         <th>
           <div>
             <span>Nome</span>
-            <div>
-              <BiChevronUp onClick={() => handleFilter('nameUp')} />
-              <BiChevronDown onClick={() => handleFilter('nameDown')} />
-            </div>
+            <TableUsersTHeadFilter param="name" />
           </div>
         </th>
         <th>
           <div>
             <span>Perfil</span>
-            <div>
-              <BiChevronUp onClick={() => handleFilter('profileUp')} />
-              <BiChevronDown onClick={() => handleFilter('profileDown')} />
-            </div>
+            <TableUsersTHeadFilter param="profile" />
           </div>
         </th>
         <th>
           <div>
             <span>Status</span>
-            <div>
-              <BiChevronUp onClick={() => handleFilter('statusUp')} />
-              <BiChevronDown onClick={() => handleFilter('statusDown')} />
-            </div>
+            <TableUsersTHeadFilter param="status" />
           </div>
         </th>
         <th>

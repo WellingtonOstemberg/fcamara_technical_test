@@ -1,11 +1,11 @@
 import { TableUsersTHeadFilterDown } from './down'
 import { TableUsersTHeadFilterUp } from './up'
 
-export const TableUsersTHeadFilter = () => {
+export const TableUsersTHeadFilter = ({ param }: { param: string }) => {
   return (
     <div>
-      <TableUsersTHeadFilterUp filter="networkUp" />
-      <TableUsersTHeadFilterDown filter="networkDown" />
+      <TableUsersTHeadFilterUp filter={`${param}Up`} />
+      <TableUsersTHeadFilterDown filter={`${param}Down`} />
     </div>
   )
 }
