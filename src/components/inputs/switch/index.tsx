@@ -23,7 +23,10 @@ export const InputSwitch = ({ value }: InputSwitchProps) => {
   }
   useEffect(() => {
     setCheckedInput(
-      usersMocked.filter((user) => user.id === value)[0].status || false,
+      (usersMocked.filter((user) => user.id === value) &&
+        usersMocked.filter((user) => user.id === value).length > 0 &&
+        usersMocked.filter((user) => user.id === value)[0].status) ||
+        false,
     )
   }, [])
   const handleChecked = () => {
