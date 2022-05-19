@@ -1,7 +1,13 @@
 import { getAllUsersTypes } from 'services/users/get/api/types'
 import { UserType } from 'types'
 import { useTypedDispatch, useTypedSelector } from '../useHelpers'
-import { setUser, setUsers, usersLoading, setUserUpdate } from './slice'
+import {
+  setUser,
+  setUsers,
+  usersLoading,
+  setUserUpdate,
+  setUserDelete,
+} from './slice'
 
 export const useUsersAsyncSlice = () => {
   const dispatch = useTypedDispatch()
@@ -12,6 +18,7 @@ export const useUsersAsyncSlice = () => {
     getUsers: (users: getAllUsersTypes) => dispatch(setUsers(users)),
     setUser: (user: UserType) => dispatch(setUser(user)),
     setUserUpdate: (user: UserType) => dispatch(setUserUpdate(user)),
+    setUserDelete: (id: number) => dispatch(setUserDelete(id)),
   }
 
   return { usersAsyncSlice, ...setState }
