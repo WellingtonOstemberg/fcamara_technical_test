@@ -4,22 +4,21 @@ import { CardHeaderCampanha } from '.'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('CardHeaderCampanha [Component]', () => {
+  const headerItemsMock = () => <h1>Test</h1>
   it('Should render with correct children and title', () => {
-    const onclick = jest.fn()
     render(
       <TestWrapper>
-        <CardHeaderCampanha onClick={onclick} />
+        <CardHeaderCampanha headerItems={headerItemsMock} />
       </TestWrapper>,
     )
     const text = screen.getByText('Default')
     expect(text).toBeInTheDocument()
   })
   it('Should render with correct children and title', () => {
-    const onclick = jest.fn()
     render(
       <MemoryRouter initialEntries={[{ pathname: '/usuarios/novo' }]}>
         <TestWrapperWithoutRoutes>
-          <CardHeaderCampanha onClick={onclick} />
+          <CardHeaderCampanha headerItems={headerItemsMock} />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )

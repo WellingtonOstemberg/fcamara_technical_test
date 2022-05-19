@@ -2,14 +2,16 @@ import { Breadcrumbs, Topbar } from './components'
 import { Header } from './styles'
 
 type CardHeaderCampanhaProps = {
-  onClick: () => void
+  headerItems: () => JSX.Element
 }
 
-export const CardHeaderCampanha = ({ onClick }: CardHeaderCampanhaProps) => {
+export const CardHeaderCampanha = ({
+  headerItems,
+}: CardHeaderCampanhaProps) => {
   return (
     <Header>
       <Breadcrumbs />
-      <Topbar onClick={onClick} />
+      <Topbar headerItems={headerItems} />
     </Header>
   )
 }

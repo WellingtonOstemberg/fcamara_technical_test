@@ -4,28 +4,27 @@ import { MemoryRouter } from 'react-router-dom'
 import { TestWrapperWithoutRoutes } from '../../../../../../../../utils'
 
 describe('TopbarItem [Component]', () => {
+  const headerItemsMock = () => <h1>Test</h1>
   it('Should render with correct children', () => {
-    const onClick = jest.fn()
     render(
       <MemoryRouter initialEntries={[{ pathname: '/usuarios/deletar/1' }]}>
         <TestWrapperWithoutRoutes>
-          <TopbarItem onClick={onClick} />
+          <TopbarItem headerItems={headerItemsMock} />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )
-    const btn = screen.getByRole('button')
+    const btn = screen.getByRole('heading', { name: 'Test' })
     expect(btn).toBeInTheDocument()
   })
   it('Should render with correct children', () => {
-    const onClick = jest.fn()
     render(
       <MemoryRouter initialEntries={[{ pathname: '/usuarios' }]}>
         <TestWrapperWithoutRoutes>
-          <TopbarItem onClick={onClick} />
+          <TopbarItem headerItems={headerItemsMock} />
         </TestWrapperWithoutRoutes>
       </MemoryRouter>,
     )
-    const btn = screen.getByRole('button')
+    const btn = screen.getByRole('heading', { name: 'Test' })
     expect(btn).toBeInTheDocument()
   })
 })

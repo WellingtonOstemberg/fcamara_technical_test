@@ -1,9 +1,11 @@
-import { CardHeaderCampanha } from 'components'
+import { BtnPrimaryLifted, CardHeaderCampanha } from 'components'
 import { useEffect, useState } from 'react'
+import { FiSave } from 'react-icons/fi'
 import { usePostUser } from 'services'
 import Swal from 'sweetalert2'
 import { UserType } from 'types'
 import { UserForm } from './components/form'
+import { NavItemWrapper } from './style'
 import { validateUserFields } from './utils'
 
 export const UserCreate = () => {
@@ -40,9 +42,22 @@ export const UserCreate = () => {
     newId && setUser({ ...user, id: newId + 1 })
   }, [usersAsyncSlice.users])
 
+  const routeHeader = () => {
+    return (
+      <NavItemWrapper>
+        <BtnPrimaryLifted
+          onClick={handleSaveUser}
+          width="184px"
+          text="Salvar Alterações"
+          icon={<FiSave />}
+        />
+      </NavItemWrapper>
+    )
+  }
+
   return (
     <>
-      <CardHeaderCampanha onClick={handleSaveUser} />
+      <CardHeaderCampanha headerItems={routeHeader} />
       <UserForm userData={user} setUser={setUser} />
     </>
   )

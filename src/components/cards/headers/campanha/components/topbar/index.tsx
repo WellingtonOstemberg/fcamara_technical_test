@@ -2,12 +2,12 @@ import { TopbarItem } from './components/navitem'
 import * as S from './styles'
 
 type TopbarProps = {
-  onClick: () => void
+  headerItems: () => JSX.Element
 }
-export const Topbar = ({ onClick }: TopbarProps) => {
+export const Topbar = ({ headerItems }: TopbarProps) => {
   return (
     <S.Topbar>
-      <TopbarItem onClick={onClick} />
+      <TopbarItem headerItems={headerItems} />
     </S.Topbar>
   )
 }

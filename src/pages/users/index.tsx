@@ -1,8 +1,14 @@
-import { CardHeaderCampanha, TableUsers } from 'components'
+import {
+  BtnPrimaryLifted,
+  CardHeaderCampanha,
+  SearchInput,
+  TableUsers,
+} from 'components'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAllUsers } from 'services'
 import { UserType } from 'types'
+import { NavItemWrapper } from './style'
 
 export const Users = () => {
   const navigate = useNavigate()
@@ -21,9 +27,22 @@ export const Users = () => {
     getFetchUsers()
   }, [])
 
+  const routeHeader = () => {
+    return (
+      <NavItemWrapper>
+        <SearchInput />
+        <BtnPrimaryLifted
+          onClick={handleNavigate}
+          width="184px"
+          text="Novo usuário"
+        />
+      </NavItemWrapper>
+    )
+  }
+
   return (
     <>
-      <CardHeaderCampanha onClick={handleNavigate} />
+      <CardHeaderCampanha headerItems={routeHeader} />
       <TableUsers users={users || usersAsyncSlice.users} />
     </>
   )
