@@ -10,8 +10,8 @@ type UserFormProps = {
 }
 export const UserForm = ({ userData, setUser }: UserFormProps) => {
   const { id } = useParams()
-  const [name, setName] = useState('')
   const [idParam, setidParam] = useState<number>(Number(id))
+  const [name, setName] = useState('')
   const [cpf, setCpf] = useState('')
   const [email, setEmail] = useState('')
   const [networks, setNetworks] = useState<string[]>([])
