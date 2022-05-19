@@ -2,7 +2,7 @@ import { InputText, SelectMultiple, SelectSimple } from 'components'
 import { Container, FormUser } from './styles'
 import { accessProfilesMock, networksMock, storesMock, usersMock } from 'utils'
 import { UserType } from 'types'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 type UserFormProps = {
   userData?: UserType
@@ -10,6 +10,7 @@ type UserFormProps = {
 }
 export const UserForm = ({ userData, setUser }: UserFormProps) => {
   const { id } = useParams()
+  const refForm = useRef(null)
   const [name, setName] = useState('')
   const [cpf, setCpf] = useState('')
   const [email, setEmail] = useState('')
@@ -46,8 +47,14 @@ export const UserForm = ({ userData, setUser }: UserFormProps) => {
   useEffect(() => {
     userData && handleUser(userData)
   }, [userData])
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    console.log('submeteu')
+  }
+
   return (
-    <FormUser>
+    <FormUser ref={refForm} onSubmit={handleSubmit}>
       <Container>
         <InputText
           value={name}

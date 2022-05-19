@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getAllUsersTypes } from 'services/users/get/api/types'
+import { UserType } from 'types'
 import { PayloadType } from './types'
 
 const initialState: getAllUsersTypes = {
@@ -18,12 +19,16 @@ const usersAsyncSlice = createSlice({
     setUsers(state, { payload }: PayloadType) {
       return { ...state, ...payload }
     },
+    setUser(state, action: PayloadAction<UserType>) {
+      return { ...state, users: [...state.users, action.payload] }
+    },
     getUsers(state) {
       return { ...state }
     },
   },
 })
 
-export const { usersLoading, setUsers, getUsers } = usersAsyncSlice.actions
+export const { usersLoading, setUsers, getUsers, setUser } =
+  usersAsyncSlice.actions
 
 export const usersAsync = usersAsyncSlice.reducer
