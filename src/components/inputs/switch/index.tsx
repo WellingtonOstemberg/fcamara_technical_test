@@ -13,7 +13,9 @@ export const InputSwitch = ({ value }: InputSwitchProps) => {
   const [checkedInput, setCheckedInput] = useState(false)
   const handleSaveUser = (checked: boolean) => {
     Swal.fire({
-      text: 'Informações salvas com sucesso!',
+      text: checked
+        ? 'Usuário ativado com sucesso!'
+        : 'Usuário desativado com sucesso!',
       icon: 'success',
       width: '300px',
     })
