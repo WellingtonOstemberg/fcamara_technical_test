@@ -24,13 +24,16 @@ export const Users = () => {
   }, [searchParams])
 
   useEffect(() => {
+    getFetchUsers()
+  }, [])
+
+  useEffect(() => {
     setUsers(
       JSON.parse(
         JSON.parse(localStorage.getItem('persist:root') || '').usersAsync,
       ).users,
     )
-    getFetchUsers()
-  }, [])
+  }, [localStorage])
 
   const routeHeader = () => {
     return (
@@ -48,7 +51,7 @@ export const Users = () => {
   return (
     <>
       <CardHeaderCampanha headerItems={routeHeader} />
-      <TableUsers users={users || usersAsyncSlice.users} />
+      <TableUsers users={usersAsyncSlice.users} />
     </>
   )
 }
