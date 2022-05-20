@@ -11,7 +11,7 @@ describe('CardHeaderCampanha [Component]', () => {
         <CardHeaderCampanha headerItems={headerItemsMock} />
       </TestWrapper>,
     )
-    const text = screen.getByText('Default')
+    const text = screen.getByText('Seja bem-vindo!')
     expect(text).toBeInTheDocument()
   })
   it('Should render with correct children and title', () => {

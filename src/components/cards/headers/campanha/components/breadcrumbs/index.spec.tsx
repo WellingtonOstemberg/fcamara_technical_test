@@ -10,7 +10,7 @@ describe('Breadcrumbs [Component]', () => {
         <Breadcrumbs />
       </TestWrapper>,
     )
-    const breadcrumb = screen.getByText('Default')
+    const breadcrumb = screen.getByText('Seja bem-vindo!')
     expect(breadcrumb).toBeInTheDocument()
   })
   it('Should render with correct text Usuários', () => {
